@@ -73,7 +73,7 @@
                         <td>{{men.correoContacto}}</td>
                         <td>{{men.fonoContacto}}</td>
                         <td>{{men.mensaje}}</td>
-                        <td><a href="{% url 'modificar_mensaje' men.rut%}">Modificar   </a></td>
+                        <td><a href="{% url 'modificar_mensaje' men.rut%}" class="btn btn-primary">Modificar   </a></td><td><a href="{% url 'eliminar_mensaje' men.rut%}" class="btn btn-danger">Eliminar </a></td>
                     </tr>
                 {%endfor%}
 

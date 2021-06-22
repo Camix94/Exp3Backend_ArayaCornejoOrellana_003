@@ -53,7 +53,7 @@
         
 
         
-                <form method="POST" action="#" id="formulario">
+                <form method="POST" action="#" id="form_1">
                     {%csrf_token%}
                     <div class="user-details">
                         <div class="input-box">
@@ -66,7 +66,12 @@
                             <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
                         </div>
                 </form>
+                <div id="msg" class="mensaje"></div>
+              </div>
 
+              <script src="{% static 'core/js/formulario-contacto.js'%}"></script>
+          </div>
+      </div>
             </div>
     </div>  
     <br><br><br>

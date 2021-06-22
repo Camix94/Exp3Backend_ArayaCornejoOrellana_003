@@ -37,3 +37,8 @@ def form_mod_mensaje(request,id):
             formulario.save()
             return redirect('ver')
     return render(request, 'core/mod-datos-form.html', datos)
+
+def eliminar_mensaje(request,id):
+    mensaje = MensajeContacto.objects.get(rut=id)
+    mensaje.delete()
+    return redirect('ver')

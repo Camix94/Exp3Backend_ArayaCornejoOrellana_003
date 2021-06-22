@@ -24,3 +24,16 @@ def Ver(request):
     mensajes = MensajeContacto.objects.all()
 
     return render(request, 'core/mostrar-datos-form.html', context={'mensajes':mensajes})
+
+def form_mod_mensaje(request,id):
+    mensaje = MensajeContacto.objects.get(rut=id)
+
+    datos ={
+        'form': MensajeForm(instance=mensaje)
+    }
+    if request.method == 'POST': 
+        formulario = MensajeForm(data=request.POST, instance = mensaje)
+        if formulario.is_valid: 
+            formulario.save()
+            return redirect('ver')
+    return render(request, 'core/mod-datos-form.html', datos)

@@ -4,7 +4,7 @@
     <head>
       <title>Adopt a pet</title>
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <link rel="stylesheet" type="text/css" href="{% static 'core/css/styles-mostrar-datos.css'%}">
+      <link rel="stylesheet" type="text/css" href="{% static 'core/css/styles.css'%}">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link href="{% static 'core/bootstrap/css/bootstrap.min.css'%}" type="text/css" rel="stylesheet">  
@@ -36,7 +36,7 @@
               <li class="nav-item px-lg-4">
                 <a class="nav-link text-uppercase text-expanded" href="{% url 'crearMensajeNuevo' %}">Contacto</a>
               </li>
-              <li class="nav-item active px-lg-4">
+              <li class="nav-item px-lg-4">
                 <a class="nav-link text-uppercase text-expanded" href="{% url 'ver' %}">Ver Mensajes</a>
               </li>
             </ul>
@@ -44,48 +44,35 @@
         </div>
       </nav>
       <br><br><br>
-
+      
       <!--CONTENIDO PÁGINA-->
       <div class="container">
-      <div class="container">
-        <div class="container bg-table">
-        <h1>Mostrando Mensajes</h1>
-            <br><br>
-      
-        <table class="table table-bordered table-responsive">
-            <thead>
-                <tr>
-                    <th scope="col">Rut</th>
-                    <th scope="col">Asunto</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Mensaje</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                {%for men in mensajes%}
-                    <tr>
-                        <td>{{men.rut}}</td>
-                        <td>{{men.asuntoMensaje}}</td>
-                        <td>{{men.nombreContacto}}</td>
-                        <td>{{men.correoContacto}}</td>
-                        <td>{{men.fonoContacto}}</td>
-                        <td>{{men.mensaje}}</td>
-                        <td><a href="{% url 'modificar_mensaje' men.rut%}">Modificar   </a></td>
-                    </tr>
-                {%endfor%}
+        <div class="container-form">
+            <h1>Modificando Mensajes</h1>
+            <h4 class="mensaje">¡¡NO MODIFIQUE EL RUT!!</h4>
+        
 
-            </tbody>
+        
+                <form method="POST" action="#" id="formulario">
+                    {%csrf_token%}
+                    <div class="user-details">
+                        <div class="input-box">
+                        {{form.as_table}}
+                    </div></div>
+                
+                
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-danger" id="modificar" value="Modificar">
+                            <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+                        </div>
+                </form>
 
-        </table>
-        <br>
-    </div>
-    </div>
-    </div>
-</div></div>
-    <br><br>
+            </div>
+    </div>  
+    <br><br><br>
+
+
+
       <!-- Bootstrap core JavaScript -->   
       <script src="{% static 'core/jquery/jquery.slim.min.js'%}"></script>           
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
